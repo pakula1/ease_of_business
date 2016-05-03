@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doing Business</title>
+
+    <!-- CSS libraries -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Custom CSS code -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+
+<body>
+
+    <div class="container">
+
+        <h1 class="titleText">Doing business around the globe</h1>
+
+        <!-- Overview -->
+        <div class="container">
+            <div class = "row">
+                <div id="generalOverview">
+                </div>
+            </div>
+        </div>
+
+        <!-- This row contains the Metric and Year selectors for everything -->
+        <div class="container">
+            <div class="row">
+
+                <!--// Map & scatter metric-->
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label>Metric:</label>
+                        <select class="form-control" id="dataFilter" onmousedown="this.value='';" onchange="populateDatepicker()">
+                            <option value="CorruptionData">Corruption perception</option>
+                            <option value ="LifeExpectancyData">Life expectancy at birth</option>
+                            <option value ="MigrationData">Net migration (5yr averages)</option>
+                            <option value ="DoingBusinessData">Ease of doing business</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!--// Map & scatter year-->
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label>Metric Year:</label>
+                        <select class="form-control" id="metricYear" onmousedown="this.value='';" onchange="prepGraphs();">
+                        </select>
+                    </div>
+                </div>
+
+                <!--// Sankey diagram country-->
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <label for="ranking-type">Doing business Country:</label>
+                        <select class="form-control" id="ranking-type">
+                            <option value="AFG">Afghanistan</option>
+                            <option value="ALB">Albania</option>
+                            <option value="DZA">Algeria</option>
+                            <option value="AGO">Angola</option>
+                            <option value="ATG">Antigua and Barbuda</option>
+                            <option value="ARG">Argentina</option>
+                            <option value="ARM">Armenia</option>
+                            <option value="AUS">Australia</option>
+                            <option value="AUT">Austria</option>
+                            <option value="AZE">Azerbaijan</option>
+                            <option value="BHS">Bahamas, The</option>
+                            <option value="BHR">Bahrain</option>
+                            <option value="BGD">Bangladesh</option>
+                            <option value="BRB">Barbados</option>
+                            <option value="BLR">Belarus</option>
+                            <option value="BEL">Belgium</option>
+                            <option value="BLZ">Belize</option>
+                            <option value="BEN">Benin</option>
+                            <option value="BTN">Bhutan</option>
+                            <option value="BOL">Bolivia</option>
+                            <option value="BIH">Bosnia and Herzegovina</option>
+                            <option value="BWA">Botswana</option>
+                            <option value="BRA">Brazil</option>
+                            <option value="BRN">Brunei Darussalam</option>
+                            <option value="BGR">Bulgaria</option>
+                            <option value="BFA">Burkina Faso</option>
+                            <option value="BDI">Burundi</option>
+                            <option value="CIV">Côte d’Ivoire</option>
+                            <option value="CPV">Cabo Verde</option>
+                            <option value="KHM">Cambodia</option>
+                            <option value="CMR">Cameroon</option>
+                            <option value="CAN">Canada</option>
+                            <option value="CAF">Central African Republic</option>
+                            <option value="TCD">Chad</option>
+                            <option value="CHL">Chile</option>
+                            <option value="CHN">China</option>
+                            <option value="COL">Colombia</option>
+                            <option value="COM">Comoros</option>
+                            <option value="COD">Congo, Dem. Rep.</option>
+                            <option value="COG">Congo, Rep.</option>
+                            <option value="CRI">Costa Rica</option>
+                            <option value="HRV">Croatia</option>
+                            <option value="CYP">Cyprus</option>
+                            <option value="CZE">Czech Republic</option>
+                            <option value="DNK">Denmark</option>
+                            <option value="DJI">Djibouti</option>
+                            <option value="DMA">Dominica</option>
+                            <option value="DOM">Dominican Republic</option>
+                            <option value="ECU">Ecuador</option>
+                            <option value="EGY">Egypt, Arab Rep.</option>
+                            <option value="SLV">El Salvador</option>
+                            <option value="GNQ">Equatorial Guinea</option>
+                            <option value="ERI">Eritrea</option>
+                            <option value="EST">Estonia</option>
+                            <option value="ETH">Ethiopia</option>
+                            <option value="FJI">Fiji</option>
+                            <option value="FIN">Finland</option>
+                            <option value="FRA">France</option>
+                            <option value="GAB">Gabon</option>
+                            <option value="GMB">Gambia, The</option>
+                            <option value="GEO">Georgia</option>
+                            <option value="DEU">Germany</option>
+                            <option value="GHA">Ghana</option>
+                            <option value="GRC">Greece</option>
+                            <option value="GRD">Grenada</option>
+                            <option value="GTM">Guatemala</option>
+                            <option value="GIN">Guinea</option>
+                            <option value="GNB">Guinea-Bissau</option>
+                            <option value="GUY">Guyana</option>
+                            <option value="HTI">Haiti</option>
+                            <option value="HND">Honduras</option>
+                            <option value="HKG">Hong Kong SAR, China</option>
+                            <option value="HUN">Hungary</option>
+                            <option value="ISL">Iceland</option>
+                            <option value="IND">India</option>
+                            <option value="IDN">Indonesia</option>
+                            <option value="IRN">Iran, Islamic Rep.</option>
+                            <option value="IRQ">Iraq</option>
+                            <option value="IRL">Ireland</option>
+                            <option value="ISR">Israel</option>
+                            <option value="ITA">Italy</option>
+                            <option value="JAM">Jamaica</option>
+                            <option value="JPN">Japan</option>
+                            <option value="JOR">Jordan</option>
+                            <option value="KAZ">Kazakhstan</option>
+                            <option value="KEN">Kenya</option>
+                            <option value="KIR">Kiribati</option>
+                            <option value="KOR">Korea, Rep.</option>
+                            <option value="KSV">Kosovo</option>
+                            <option value="KWT">Kuwait</option>
+                            <option value="KGZ">Kyrgyz Republic</option>
+                            <option value="LAO">Lao PDR</option>
+                            <option value="LVA">Latvia</option>
+                            <option value="LBN">Lebanon</option>
+                            <option value="LSO">Lesotho</option>
+                            <option value="LBR">Liberia</option>
+                            <option value="LBY">Libya</option>
+                            <option value="LTU">Lithuania</option>
+                            <option value="LUX">Luxembourg</option>
+                            <option value="MKD">Macedonia, FYR</option>
+                            <option value="MDG">Madagascar</option>
+                            <option value="MWI">Malawi</option>
+                            <option value="MYS">Malaysia</option>
+                            <option value="MDV">Maldives</option>
+                            <option value="MLI">Mali</option>
+                            <option value="MLT">Malta</option>
+                            <option value="MHL">Marshall Islands</option>
+                            <option value="MRT">Mauritania</option>
+                            <option value="MUS">Mauritius</option>
+                            <option value="MEX">Mexico</option>
+                            <option value="FSM">Micronesia, Fed. Sts.</option>
+                            <option value="MDA">Moldova</option>
+                            <option value="MNG">Mongolia</option>
+                            <option value="MNE">Montenegro</option>
+                            <option value="MAR">Morocco</option>
+                            <option value="MOZ">Mozambique</option>
+                            <option value="MMR">Myanmar</option>
+                            <option value="NAM">Namibia</option>
+                            <option value="NPL">Nepal</option>
+                            <option value="NLD">Netherlands</option>
+                            <option value="NZL">New Zealand</option>
+                            <option value="NIC">Nicaragua</option>
+                            <option value="NER">Niger</option>
+                            <option value="NGA">Nigeria</option>
+                            <option value="NOR">Norway</option>
+                            <option value="OMN">Oman</option>
+                            <option value="PAK">Pakistan</option>
+                            <option value="PLW">Palau</option>
+                            <option value="PAN">Panama</option>
+                            <option value="PNG">Papua New Guinea</option>
+                            <option value="PRY">Paraguay</option>
+                            <option value="PER">Peru</option>
+                            <option value="PHL">Philippines</option>
+                            <option value="POL">Poland</option>
+                            <option value="PRT">Portugal</option>
+                            <option value="PRI">Puerto Rico (U.S.)</option>
+                            <option value="QAT">Qatar</option>
+                            <option value="ROU">Romania</option>
+                            <option value="RUS">Russian Federation</option>
+                            <option value="RWA">Rwanda</option>
+                            <option value="STP">Sao Tome and Principe</option>
+                            <option value="WSM">Samoa</option>
+                            <option value="SMR">San Marino</option>
+                            <option value="SAU">Saudi Arabia</option>
+                            <option value="SEN">Senegal</option>
+                            <option value="SRB">Serbia</option>
+                            <option value="SYC">Seychelles</option>
+                            <option value="SLE">Sierra Leone</option>
+                            <option value="SGP">Singapore</option>
+                            <option value="SVK">Slovak Republic</option>
+                            <option value="SVN">Slovenia</option>
+                            <option value="SLB">Solomon Islands</option>
+                            <option value="ZAF">South Africa</option>
+                            <option value="SSD">South Sudan</option>
+                            <option value="ESP">Spain</option>
+                            <option value="LKA">Sri Lanka</option>
+                            <option value="KNA">St. Kitts and Nevis</option>
+                            <option value="LCA">St. Lucia</option>
+                            <option value="VCT">St. Vincent and the Grenadines</option>
+                            <option value="SDN">Sudan</option>
+                            <option value="SUR">Suriname</option>
+                            <option value="SWZ">Swaziland</option>
+                            <option value="SWE">Sweden</option>
+                            <option value="CHE">Switzerland</option>
+                            <option value="SYR">Syrian Arab Republic</option>
+                            <option value="TWN">Taiwan, China</option>
+                            <option value="TJK">Tajikistan</option>
+                            <option value="TZA">Tanzania</option>
+                            <option value="THA">Thailand</option>
+                            <option value="TLS">Timor-Leste</option>
+                            <option value="TGO">Togo</option>
+                            <option value="TON">Tonga</option>
+                            <option value="TTO">Trinidad and Tobago</option>
+                            <option value="TUN">Tunisia</option>
+                            <option value="TUR">Turkey</option>
+                            <option value="UGA">Uganda</option>
+                            <option value="UKR">Ukraine</option>
+                            <option value="ARE">United Arab Emirates</option>
+                            <option value="GBR">United Kingdom</option>
+                            <option value="USA">United States</option>
+                            <option value="URY">Uruguay</option>
+                            <option value="UZB">Uzbekistan</option>
+                            <option value="VUT">Vanuatu</option>
+                            <option value="VEN">Venezuela, RB</option>
+                            <option value="VNM">Vietnam</option>
+                            <option value="PSE">West Bank and Gaza</option>
+                            <option value="YEM">Yemen, Rep.</option>
+                            <option value="ZMB">Zambia</option>
+                            <option value="ZWE">Zimbabwe</option>
+                        </select>
+
+
+
+                    </div>
+
+                </div>
+
+                <!--// Sankey diagram year-->
+                <div class="col-lg-3">
+                    <label for="year">Doing business Year:</label>
+                    <select class="form-control" id="year">
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- This row contains the map and report card -->
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <!-- Choropleth -->
+                    <div id="choropleth">
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <!-- Sankey diagram intro -->
+                    <div id="report">
+                    </div>
+
+                    <!-- Sankey diagram -->
+                    <div id="sankey">
+                        <div class="container">
+                            <!-- Select box to choose the ranking type -->
+                            <form class="form-inline">
+
+                            </form>
+                            <!-- Parent container for the visualization -->
+                            <div id="chart-area"></div>
+
+                        </div>
+                    </div>
+
+                    <!-- Sankey diagram description -->
+                    <div id="descriptionSankey">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MIDDLE SECTION -->
+
+    <!-- text -->
+
+
+    <div class="container">
+        <div class = "row">
+            <div id="compareDataSets">
+            </div>
+        </div>
+
+        <div class = "row">
+
+            <div class="sub-title" id="scatter-title">
+                </div>
+
+            <!-- Scatter Plot -->
+                <div id="scatter">
+                </div>
+
+        </div>
+
+        <div id="footer">
+            <p class="sub-title">
+                Acknowledgements:
+            </p>
+            <p class="text">
+                Authors:
+            <ul>
+                <li>Fraser Macdonald</li>
+                <li>Nadiia Novik</li>
+                <li>Prabhu Akula</li>
+            </ul>
+            Sources:
+            <ul>
+                <li>Doing Business data: <a href="http://www.doingbusiness.org" target="_blank">doingbusiness.org</a> </li>
+                <li>Corruption perception index data: <a href="http://www.transparency.org" target="_blank">transparency.org</a> </li>
+                <li>Net migration data: <a href="http://www.wdi.worldbank.org" target="_blank">wdi.worldbank.org</a> </li>
+                <li>Life expectancy at birth data: <a href="http://www.data.worldbank.org" target="_blank">data.worldbank.org</a> </li>
+            </ul>
+
+            </p>
+
+            <p class="sub-title">
+            Process Book:
+            </p>
+            <p class="text">
+            Read <a href="data/ProcessBook_BizViz.pdf" target="_blank">details about the project</a>
+            </p>
+            
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- BOTTOM SECTION -->
+
+
+
+</div>
+
+
+
+    <!-- Load JS libraries -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/queue.v1.min.js"></script>
+    <script src="js/topojson.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/d3.tip.js"></script>
+
+    <!-- Text js -->
+    <script src="js/text.js"></script>
+
+    <!-- Visualization objects -->
+    <script src="js/Choropleth.js"></script>
+    <script src="js/sankey.js"></script>
+    <script src="js/ReportCard.js"></script>
+
+    <script src="js/ScatterPlot.js"></script>
+
+    <!-- Load data, create visualizations -->
+    <script src="js/main.js"></script>
+</body>
+</html>

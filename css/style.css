@@ -1,0 +1,153 @@
+
+/* General */
+body {
+    background-color: #d2eaf4;
+    font-size: 14px;
+}
+
+.sub-title {
+    font-style: italic;
+    font-weight: bold}
+
+.text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* Choropleth */
+
+svg .country {
+    opacity: 0.75;
+}
+
+svg .country:hover {
+    stroke-opacity:1;
+    stroke-width: 2px;
+}
+
+svg .country:hover{
+    opacity: 1;
+}
+
+svg .legend_text{
+    fill: #5e4e53;
+    text-anchor: middle;
+    font-size: 12px;
+}
+
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+/* Tooltip */
+
+.d3-tip {
+    background-color: rgba(265, 265, 265, 0.9);
+    color: #5e4e53;
+    font-size: 12px;
+    font-style: oblique;
+    text-align: end;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    position: inherit;
+}
+
+/* ADD YOUR STYLES HERE */
+
+
+/****************/
+/*  LINE CHART  */
+/****************/
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-size: 11px;
+}
+
+.line {
+    fill: none;
+    stroke: #1C9A3D;
+    stroke-width: 1.5px;
+}
+
+.tooltip-circle {
+    fill: #96AB96;
+}
+
+
+/*********************/
+/*  TOOLTIP OVERLAY  */
+/*********************/
+
+.tooltip-title {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+
+.node rect {
+    cursor: move;
+    fill-opacity: .9;
+    shape-rendering: crispEdges;
+}
+
+.node text {
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+.link:hover {
+    stroke-opacity: .5;
+}
+
+.title{
+    font-family: 'Verdana', sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    margin-bottom: 30px;
+    color: #7f7eff;
+}
